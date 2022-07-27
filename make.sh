@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+# todo: rewrite with sh instead of bash
 
 if [[ "$1" == "clean" ]]; then
 	rm tests/tbs-* && echo "rm tests/tbs-*"
