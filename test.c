@@ -23,8 +23,7 @@ int main()
 	printf("long         : " TBS_WS_F "\n", BITS(long));
 	printf("float        : " TBS_WS_F "\n", BITS(float));
 	printf("double       : " TBS_WS_F "\n", BITS(double));
-	printf("long double  : " TBS_WS_F "\n", sizeof(long double));
-	printf("__int128     : " TBS_WS_F "\n", sizeof(long double));
+	printf("long double  : " TBS_WS_F "\n", BITS(long double));
 	puts("------------------------------");
 
 	printf("u8   : " TBS_WS_F "\n", BITS(u8));
