@@ -33,25 +33,10 @@ while read line; do
 
 	[[ "$line" == "" ]] && continue
 
-	touch /tmp/bla.c
+	IFS='-' read -r -a info <<< "$line"
 
-	gcc -E -m32 /tmp/bla.c > /dev/null
-
-	if [[ $? -eq 1 ]]; then
-		rm /tmp/bla.c
-
-		IFS='-' read -r -a info <<< "$line"
-
-		echo "${info[1]} -o $line -m${info[2]} -std=${info[3]} test.c"
-		${info[1]} -pedantic -o tests/$line -std=${info[3]} test.c
-	else
-		rm /tmp/bla.c
-
-		IFS='-' read -r -a info <<< "$line"
-
-		echo "${info[1]} -o $line -m${info[2]} -std=${info[3]} test.c"
-		${info[1]} -pedantic -o tests/$line -m${info[2]} -std=${info[3]} test.c
-	fi
+	echo "${info[1]} -o $line -m${info[2]} -std=${info[3]} test.c"
+	${info[1]} -pedantic -o tests/$line -std=${info[3]} test.c
 
 done <<< "$objs"
 
