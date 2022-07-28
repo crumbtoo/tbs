@@ -39,12 +39,8 @@ floating point types
 
 ## tested on
 
-must be compatible with 
-
- - [x] x86_64
- - [x] x86_32
-
 | arch		| gcc | clang | g++ | clang++ |
 | --------- | --- | ----- | --- | ------- |
-| x86_64	| X   | X     |
-| x86_32	| X   | X     |
+| x86_64	| X   | X     | X   | X		  |
+| x86_32	| X   | X     | X   | X		  |
+
