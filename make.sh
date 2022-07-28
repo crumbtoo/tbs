@@ -7,17 +7,25 @@ if [[ "$1" == "clean" ]]; then
 	exit
 fi
 
-objs="tbs-clang-32-c89
+objs="
+tbs-clang-32-c89
 tbs-clang-64-c89
 
 tbs-clang-32-c90
 tbs-clang-64-c90
 
+tbs-clang++-32-c++11
+tbs-clang++-64-c++11
+
 tbs-gcc-32-c89
 tbs-gcc-64-c89
 
 tbs-gcc-32-c90
-tbs-gcc-64-c90"
+tbs-gcc-64-c90
+
+tbs-g++-32-c++11
+tbs-g++-64-c++11
+"
 
 mkdir tests
 
