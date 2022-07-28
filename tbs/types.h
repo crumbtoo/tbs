@@ -49,12 +49,17 @@
 	#if(TBS_WORDSIZE == 64)
 		#define TBS_LARGE_FLOAT_SIZE 128
 		typedef long double			f128;
-	#else
-		#define TBS_LARGE_FLOAT_SIZE 96
-		typedef long double			f96;
+
+	#elif(defined __SIZEOF_LONG_DOUBLE__ && defined __SIZEOF_DOUBLE__)
+		#if(__SIZEOF_LONG_DOUBLE__ > __SIZEOF_DOUBLE__)
+			#define TBS_LARGE_FLOAT_SIZE 96
+			typedef long double			f96;
+		#else
+			#define TBS_LARGE_FLOAT_SIZE 64
+		#endif
 	#endif
 
-	typedef long double			f64plus; /* "float 64+" */
+	typedef long double			f64plus; /* will be at least 64 bits */
 #endif
 
 
