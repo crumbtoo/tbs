@@ -20,7 +20,7 @@
 		#endif
 
 	#elif(__STDC_VERSION__ >= 199901)
-		typedef signed long long i64;
+		typedef signed long long u64;
 	#endif
 #endif
 
