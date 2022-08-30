@@ -9,59 +9,78 @@
 	typedef unsigned short		u16;
 	typedef unsigned int		u32;
 
-	#if(TBS_WORDSIZE == 64)
-		#define TBS_LARGE_UINT_SIZE 128
-		#define TBS_HAS_64
+#	if(TBS_WORDSIZE == 64)
+#		define TBS_HAS_64
+#		define TBS_MAX_UINT_BITS 64
 		typedef unsigned long		u64;
 
-		#ifndef __STDC__
-			#define TBS_HAS_128
+#		ifndef __STDC__
+#			define TBS_HAS_128
+#			define TBS_MAX_UINT_BITS 128
 			typedef unsigned __int128	u128;	/* todo: make sure target can support u128 before typedefing */
-		#endif
+			typedef u128 umax;
+#		else
+			typedef u64 umax;
+#		endif
 
-	#elif(__STDC_VERSION__ >= 199901l)
-		#define TBS_HAS_64
+#	elif(__STDC_VERSION__ >= 199901l)
+#		define TBS_HAS_64
+#		define TBS_MAX_UINT_BITS 64
 		typedef signed long long u64;
-	#endif
+		typedef u64 umax;
+#	endif
 #endif
 
-#ifndef TBS_NO_INTS
-	typedef signed char			i8;
-	typedef signed short		i16;
-	typedef signed int			i32;
 
-	#if(TBS_WORDSIZE == 64)
-		#define TBS_LARGE_SINT_SIZE 128
-		#define TBS_HAS_64
-		typedef signed long			i64;
 
-		#ifndef __STDC__
+
+
+#ifndef TBS_NO_SINTS
+	typedef signed char					i8;
+	typedef signed short				i16;
+	typedef signed int					i32;
+
+#	if(TBS_WORDSIZE == 64)
+#		define TBS_MAX_SINT_BITS		128
+#		define TBS_HAS_64
+		typedef signed long				i64;
+
+#		ifndef __STDC__
 			typedef signed __int128		i128;
-		#endif
-	#elif(__STDC_VERSION__ >= 199901l)
-		#define TBS_HAS_64
-		typedef signed long long i64;
-	#endif
+			typedef i128				imax;
+#		else
+			typedef i64					imax;
+#		endif
+
+#	elif(__STDC_VERSION__ >= 199901l)
+#		define TBS_HAS_64
+		typedef signed long long		i64;
+		typedef i64					imax;
+#	endif
 #endif
+
+
+
+
 
 #ifndef TBS_NO_FLOATS
-	typedef float				f32;
-	typedef double				f64;
+	typedef float						f32;
+	typedef double						f64;
 
-	#if(TBS_WORDSIZE == 64)
-		#define TBS_LARGE_FLOAT_SIZE 128
-		typedef long double			f128;
+#	if(TBS_WORDSIZE == 64)
+#		define TBS_MAX_FLOAT_BITS		128
+		typedef long double				f128;
 
-	#elif(defined __SIZEOF_LONG_DOUBLE__ && defined __SIZEOF_DOUBLE__)
-		#if(__SIZEOF_LONG_DOUBLE__ > __SIZEOF_DOUBLE__)
-			#define TBS_LARGE_FLOAT_SIZE 96
+#	elif(defined __SIZEOF_LONG_DOUBLE__ && defined __SIZEOF_DOUBLE__)
+#		if(__SIZEOF_LONG_DOUBLE__ > __SIZEOF_DOUBLE__)
+#			define TBS_MAX_FLOAT_BITS	96
 			typedef long double			f96;
-		#else
-			#define TBS_LARGE_FLOAT_SIZE 64
-		#endif
-	#endif
+#		else
+#			define TBS_MAX_FLOAT_BITS	64
+#		endif
+#	endif
 
-	typedef long double			f64plus; /* will be at least 64 bits */
+	typedef long double					fmax; /* will be at least 64 bits */
 #endif
 
 

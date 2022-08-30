@@ -25,7 +25,7 @@ signed types
 floating point types
 `f32`, `f64`, `f96`/`f128` (`f128` when supported)
 
-`f64plus` will be typedef'd to the largest floating type available (`f96` on 32-bit systems, `f128` on 64-bit)
+`[uif]max` will be typedef'd to the widest type available
 
 ## macros
 
@@ -39,8 +39,9 @@ floating point types
 
 ## tested on
 
-| arch		| gcc | clang | g++ | clang++ |
-| --------- | --- | ----- | --- | ------- |
-| x86_64	| X   | X     | X   | X		  |
-| x86_32	| X   | X     | X   | X		  |
+| OS			| arch		| gcc | clang | g++ | clang++ |
+| ------------- | --------- | --- | ----- | --- | ------- |
+| Arch Linux	| x86_64	| X   | X     | X   | X		  |
+| Arch Linux	| x86_32	| X   | X     | X   | X		  |
+| MacOS 12.4	| x86_64	| X   | X     | X   | X		  |
 

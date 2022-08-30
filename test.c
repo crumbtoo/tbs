@@ -35,6 +35,7 @@ int main()
 #ifdef TBS_HAS_128
 	printf("u128 : " TBS_WS_F "\n", BITS(u128));
 #endif
+	printf("umax : " TBS_WS_F "\n", BITS(umax));
 
 	puts("");
 
@@ -47,16 +48,17 @@ int main()
 #ifdef TBS_HAS_128
 	printf("i128 : " TBS_WS_F "\n", BITS(i128));
 #endif
+	printf("imax : " TBS_WS_F "\n", BITS(imax));
 
 	puts("");
 
 	printf("f32  : " TBS_WS_F "\n", BITS(f32));
 	printf("f64  : " TBS_WS_F "\n", BITS(f64));
-#if(TBS_LARGE_FLOAT_SIZE == 96)
+#if(TBS_MAX_FLOAT_BITS == 96)
 	printf("f96  : " TBS_WS_F "\n", BITS(f96));
 #endif
-#if(TBS_LARGE_FLOAT_SIZE == 128)
+#if(TBS_MAX_FLOAT_BITS == 128)
 	printf("f128 : " TBS_WS_F "\n", BITS(f128));
 #endif
-	printf("f64p : " TBS_WS_F "\n", BITS(f64plus));
+	printf("fmax : " TBS_WS_F "\n", BITS(fmax));
 }

@@ -23,6 +23,9 @@ tbs-gcc-64-c89
 tbs-gcc-32-c99
 tbs-gcc-64-c99
 
+tbs-gcc-32-gnu99
+tbs-gcc-64-gnu99
+
 tbs-g++-32-c++11
 tbs-g++-64-c++11
 "
