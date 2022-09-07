@@ -9,7 +9,7 @@ signed types
 `i8`-`i64` (`i128` when supported)
 
 floating point types
-`f32`, `f64`, `f96`/`f128` (`f128` when supported)
+`f32`, `f64`, `f96`/`f128` (`float`, `double`, and `long double`, respectively)
 
 `[uif]max` will be typedef'd to the widest type available
 
