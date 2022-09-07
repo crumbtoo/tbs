@@ -1,20 +1,6 @@
 # tbs
 types by size - C header to define types by bit-width
 
-## install
-
-install headers with
-`$ sudo make install`
-
-uninstall with
-`$ sudo make uninstall`
-
-build tests with
-`$ ./make.sh`
-
-remove tests with
-`$ ./make.sh clean`
-
 ## types
 unsigned types
 `u8`-`u64` (`u128` when supported)
