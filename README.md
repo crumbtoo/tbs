@@ -19,9 +19,7 @@ floating point types
 
  - `TBS_WORDSIZE`            set to the wordsize, based on TBS_ARCH
 
- - `TBS_HAS_64`              defined if 64-bit types are defined
-
- - `TBS_HAS_128`             defined if 128-bit types are defined
+ - `TBS_MAX_WIDTH`											amount of bits in `umax` or `imax`
 
 ## tested on
 
