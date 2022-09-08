@@ -3,86 +3,66 @@
 
 #include "arch.h"
 
-/* unsigned integers */
-#ifndef TBS_NO_UINTS
-	typedef unsigned char		u8;
-	typedef unsigned short		u16;
-	typedef unsigned int		u32;
+/* oh the horror
+ * we're only supporting 32 and 64-bit systems **AT THE MOMENT**
+ */
+#define TBS_CHAR_WIDTH					8
+#define TBS_INT_WIDTH					32
 
-#	if(TBS_WORDSIZE == 64)
-#		define TBS_HAS_64
-#		define TBS_MAX_UINT_BITS 64
-		typedef unsigned long		u64;
+typedef unsigned char					u8;
+typedef unsigned short					u16;
+typedef unsigned int					u32;
 
-#		ifndef __STDC__
-#			define TBS_HAS_128
-#			define TBS_MAX_UINT_BITS 128
-			typedef unsigned __int128	u128;	/* todo: make sure target can support u128 before typedefing */
-			typedef u128 umax;
-#		else
-			typedef u64 umax;
-#		endif
+typedef signed char						i8;
+typedef signed short					i16;
+typedef signed int						i32;
 
-#	elif(__STDC_VERSION__ >= 199901l)
-#		define TBS_HAS_64
-#		define TBS_MAX_UINT_BITS 64
-		typedef signed long long u64;
-		typedef u64 umax;
+typedef float							f32;
+typedef double							f64;
+typedef long double						fmax;
+
+#if(TBS_WORDSIZE == 64)
+	typedef unsigned long int			u64;
+	typedef signed long int				i64;
+	typedef long double					f128;
+#else
+	typedef long double					f80; /* 80-bit extended + 16 bits of padding */
+#	if(__STDC_VERSION__ >= 199901l)
+		typedef unsigned long long		u64;
+		typedef unsigned long long		i64;
 #	endif
+#endif
+
+#ifdef __SIZEOF_INT128__
+	typedef unsigned __int128			u128;
+	typedef signed __int128				i128;
+#endif
+
+
+#ifdef __SIZEOF_INT128__
+#	define TBS_MAX_WIDTH 128
+#elif TBS_WORSIZE == 64
+#	define TBS_MAX_WIDTH 64
+#elif (TBS_WORSIZE == 32) && (__STDC_VERSION__ >= 199901l)
+#	define TBS_MAX_WIDTH 64
+#elif TBS_WORDSIZE == 32
+#	define TBS_MAX_WIDTH 32
+#endif
+
+
+#if(TBS_MAX_WIDTH == 128)
+	typedef u128						umax;
+	typedef i128						imax;
+#elif(TBS_MAX_WIDTH == 64)
+	typedef u64							umax;
+	typedef i64							imax;
+#elif(TBS_MAX_WIDTH == 32)
+	typedef u32							umax;
+	typedef i32							imax;
 #endif
 
 
 
 
+#endif /* guard */
 
-#ifndef TBS_NO_SINTS
-	typedef signed char					i8;
-	typedef signed short				i16;
-	typedef signed int					i32;
-
-#	if(TBS_WORDSIZE == 64)
-#		define TBS_MAX_SINT_BITS		128
-#		define TBS_HAS_64
-		typedef signed long				i64;
-
-#		ifndef __STDC__
-			typedef signed __int128		i128;
-			typedef i128				imax;
-#		else
-			typedef i64					imax;
-#		endif
-
-#	elif(__STDC_VERSION__ >= 199901l)
-#		define TBS_HAS_64
-		typedef signed long long		i64;
-		typedef i64					imax;
-#	endif
-#endif
-
-
-
-
-
-#ifndef TBS_NO_FLOATS
-	typedef float						f32;
-	typedef double						f64;
-
-#	if(TBS_WORDSIZE == 64)
-#		define TBS_MAX_FLOAT_BITS		128
-		typedef long double				f128;
-
-#	elif(defined __SIZEOF_LONG_DOUBLE__ && defined __SIZEOF_DOUBLE__)
-#		if(__SIZEOF_LONG_DOUBLE__ > __SIZEOF_DOUBLE__)
-#			define TBS_MAX_FLOAT_BITS	96
-			typedef long double			f96;
-#		else
-#			define TBS_MAX_FLOAT_BITS	64
-#		endif
-#	endif
-
-	typedef long double					fmax; /* will be at least 64 bits */
-#endif
-
-
-
-#endif /* tbs/types.h */
