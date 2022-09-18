@@ -19,7 +19,7 @@ typedef signed int						i32;
 
 typedef float							f32;
 typedef double							f64;
-typedef long double						fmax;
+typedef long double						fMax;
 
 #if(TBS_WORDSIZE == 64)
 	typedef unsigned long int			u64;
@@ -51,14 +51,14 @@ typedef long double						fmax;
 
 
 #if(TBS_MAX_WIDTH == 128)
-	typedef u128						umax;
-	typedef i128						imax;
+	typedef u128						uMax;
+	typedef i128						iMax;
 #elif(TBS_MAX_WIDTH == 64)
-	typedef u64							umax;
-	typedef i64							imax;
+	typedef u64							uMax;
+	typedef i64							iMax;
 #elif(TBS_MAX_WIDTH == 32)
-	typedef u32							umax;
-	typedef i32							imax;
+	typedef u32							uMax;
+	typedef i32							iMax;
 #endif
 
 
