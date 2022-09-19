@@ -11,7 +11,7 @@ signed types
 floating point types
 `f32`, `f64`, `f80`/`f128` (`float`, `double`, and `long double`, respectively)
 
-`[uif]max` will be typedef'd to the widest type available
+`[uif]Max` will be typedef'd to the widest type available
 
 ## macros
 
