@@ -23,9 +23,9 @@ floating point types
 
 ## tested on
 
-| OS			| arch		| gcc | clang | g++ | clang++ |
-| ------------- | --------- | --- | ----- | --- | ------- |
-| Arch Linux	| x86_64	| X   | X     | X   | X		  |
-| Arch Linux	| x86_32	| X   | X     | X   | X		  |
-| MacOS 12.4	| x86_64	| X   | X     | X   | X		  |
-
+| OS		    	| arch		| gcc | clang | g++ | clang++ |
+| ----------------- | --------- | --- | ----- | --- | ------- |
+| Arch Linux	    | x86_64	| X   | X     | X   | X		  |
+| Arch Linux	    | x86_32	| X   | X     | X   | X		  |
+| MacOS 12.4    	| x86_64	| X   | X     | X   | X		  |
+| Debian 11 on CrOS	| x86_64	| X   | X     | X   | X		  |
