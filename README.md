@@ -1,5 +1,5 @@
 # tbs
-types by size - C header to define types by bit-width
+types by size - C header to define primative types by bit-width
 
 ## types
 unsigned types
