@@ -19,7 +19,7 @@ floating point types
 
  - `TBS_WORDSIZE`            set to the wordsize, based on TBS_ARCH
 
- - `TBS_MAX_WIDTH`											amount of bits in `umax` or `imax`
+ - `TBS_MAX_WIDTH`											amount of bits in `uMax` or `iMax`
 
 ## tested on
 
