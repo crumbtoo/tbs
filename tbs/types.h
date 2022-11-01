@@ -3,6 +3,12 @@
 
 #include "arch.h"
 
+#ifndef TBS_NO_GENERICS
+	typedef unsigned int uint;
+	typedef unsigned long ulong;
+	typedef unsigned unsigned long uulong;
+#endif
+
 /* oh the horror
  * we're only supporting 32 and 64-bit systems **AT THE MOMENT**
  */
