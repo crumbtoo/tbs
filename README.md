@@ -1,5 +1,5 @@
 # tbs
-types by size - C header to define types by bit-width
+types by size - C header to define primative types by bit-width
 
 ## types
 unsigned types
@@ -11,7 +11,7 @@ signed types
 floating point types
 `f32`, `f64`, `f80`/`f128` (`float`, `double`, and `long double`, respectively)
 
-`[uif]max` will be typedef'd to the widest type available
+`[uif]Max` will be typedef'd to the widest type available
 
 ## macros
 
@@ -19,13 +19,13 @@ floating point types
 
  - `TBS_WORDSIZE`            set to the wordsize, based on TBS_ARCH
 
- - `TBS_MAX_WIDTH`											amount of bits in `umax` or `imax`
+ - `TBS_MAX_WIDTH`											amount of bits in `uMax` or `iMax`
 
 ## tested on
 
-| OS			| arch		| gcc | clang | g++ | clang++ |
-| ------------- | --------- | --- | ----- | --- | ------- |
-| Arch Linux	| x86_64	| X   | X     | X   | X		  |
-| Arch Linux	| x86_32	| X   | X     | X   | X		  |
-| MacOS 12.4	| x86_64	| X   | X     | X   | X		  |
-
+| OS		    	| arch		| gcc | clang | g++ | clang++ |
+| ----------------- | --------- | --- | ----- | --- | ------- |
+| Arch Linux	    | x86_64	| X   | X     | X   | X		  |
+| Arch Linux	    | x86_32	| X   | X     | X   | X		  |
+| MacOS 12.4    	| x86_64	| X   | X     | X   | X		  |
+| Debian 11 on CrOS	| x86_64	| X   | X     | X   | X		  |
