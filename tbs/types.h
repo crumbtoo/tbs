@@ -6,7 +6,6 @@
 #ifndef TBS_NO_GENERICS
 	typedef unsigned int uint;
 	typedef unsigned long ulong;
-	typedef unsigned unsigned long uulong;
 #endif
 
 /* oh the horror
