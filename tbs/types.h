@@ -38,13 +38,13 @@ typedef long double						fMax;
 #	endif
 #endif
 
-#ifdef __SIZEOF_INT128__
+#if defined(__SIZEOF_INT128__) && defined(TBS_ALLOW_128_BIT_INTS)
 	typedef unsigned __int128			u128;
 	typedef signed __int128				i128;
 #endif
 
 
-#ifdef __SIZEOF_INT128__
+#ifdef __SIZEOF_INT128__ && defined(TBS_ALLOW_128_BIT_INTS)
 #	define TBS_MAX_WIDTH 128
 #elif TBS_WORSIZE == 64
 #	define TBS_MAX_WIDTH 64
@@ -55,10 +55,10 @@ typedef long double						fMax;
 #endif
 
 
-#if(TBS_MAX_WIDTH == 128)
+#if(TBS_MAX_WIDTH == 128 && defined(TBS_ALLOW_128_BIT_INTS))
 	typedef u128						uMax;
 	typedef i128						iMax;
-#elif(TBS_MAX_WIDTH == 64)
+#elif(TBS_MAX_WIDTH >= 64)
 	typedef u64							uMax;
 	typedef i64							iMax;
 #elif(TBS_MAX_WIDTH == 32)
