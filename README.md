@@ -1,6 +1,17 @@
 # tbs
 types by size - C header to define primative types by bit-width
 
+## Install
+#### With Meson
+```
+$ meson build && cd build
+$ meson test               # optional, but highly recommended
+$ sudo meson install       # install headers
+```
+#### Manually
+You can copy the `inc/tbs/` directory into the appropriate include location if you insist on not using Meson.
+pkgconfig files will not be made and tests will not be done.
+
 ## Types
 #### Generics
 `uint`, `ulong` typedef'd to `unsigned int` and `unsigned long`, respectively. Disabled by defining `TBS_NO_GENERICS`.
