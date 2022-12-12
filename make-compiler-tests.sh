@@ -30,8 +30,8 @@ else
 	exit 1
 fi
 
-if [ ! -d tests ]; then
-	mkdir tests
+if [ ! -d 'compiler-tests' ]; then
+	mkdir 'compiler-tests'
 fi
 
 for i in $tests; do
@@ -42,5 +42,5 @@ for i in $tests; do
 
 	echo "${ar1} -m${ar2} -std=${ar3} -o $i"
 
-	${ar1} -m"${ar2}" -std="${ar3}" -o "tests/$i" "test.c"
+	${ar1} -m"${ar2}" -std="${ar3}" -o "compiler-tests/$i" "compiler-test.c"
 done

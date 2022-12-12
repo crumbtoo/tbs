@@ -1,7 +1,7 @@
 project(
 	'tbs',
 	'c',
-	version: '2.0.0',
+	version: '2.0.1',
 	license: 'MIT',
     default_options: [
 		'c_std=c89',
