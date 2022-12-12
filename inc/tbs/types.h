@@ -9,8 +9,7 @@
 #endif
 
 /* oh the horror
- * we're only supporting 32 and 64-bit systems **AT THE MOMENT**
- */
+ * we're only supporting 32 and 64-bit systems **AT THE MOMENT** */
 #define TBS_CHAR_WIDTH					8
 #define TBS_INT_WIDTH					32
 
@@ -31,6 +30,7 @@ typedef long double						fMax;
 	typedef signed long int				i64;
 	typedef long double					f128;
 #else
+	/* dont ever use `f80` unless you're doing some batshit insane bithacks lmfao */
 	typedef long double					f80; /* 80-bit extended + 16 bits of padding */
 #	if(__STDC_VERSION__ >= 199901l)
 		typedef unsigned long long		u64;
@@ -44,18 +44,18 @@ typedef long double						fMax;
 #endif
 
 
-#ifdef __SIZEOF_INT128__ && defined(TBS_ALLOW_128_BIT_INTS)
+#if (defined(__SIZEOF_INT128__) && defined(TBS_ALLOW_128_BIT_INTS))
 #	define TBS_MAX_WIDTH 128
-#elif TBS_WORSIZE == 64
+#elif (TBS_WORDSIZE == 64)
 #	define TBS_MAX_WIDTH 64
-#elif (TBS_WORSIZE == 32) && (__STDC_VERSION__ >= 199901l)
+#elif ((TBS_WORDSIZE == 32) && (__STDC_VERSION__ >= 199901l))
 #	define TBS_MAX_WIDTH 64
-#elif TBS_WORDSIZE == 32
+#elif (TBS_WORDSIZE == 32)
 #	define TBS_MAX_WIDTH 32
 #endif
 
 
-#if(TBS_MAX_WIDTH == 128 && defined(TBS_ALLOW_128_BIT_INTS))
+#if TBS_MAX_WIDTH == 128 && defined(TBS_ALLOW_128_BIT_INTS)
 	typedef u128						uMax;
 	typedef i128						iMax;
 #elif(TBS_MAX_WIDTH >= 64)
@@ -65,8 +65,6 @@ typedef long double						fMax;
 	typedef u32							uMax;
 	typedef i32							iMax;
 #endif
-
-
 
 
 #endif /* guard */
