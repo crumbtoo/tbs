@@ -26,6 +26,14 @@ install_headers(
     subdir : 'tbs',
 )
 
+pkg_mod = import('pkgconfig')
+pkg_mod.generate(
+  name : meson.project_name(),
+  filebase : meson.project_name(),
+  description : 'type definitions by size',
+  subdirs : meson.project_name(),
+)
+
 if not meson.is_subproject()
     subdir('tst')
 endif
