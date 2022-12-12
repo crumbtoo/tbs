@@ -1,27 +1,31 @@
 # tbs
 types by size - C header to define primative types by bit-width
 
-## types
-unsigned types
-`u8`-`u64` (`u128` when supported)
+## Types
+#### Unsigned Types
+`u8`, `u16`, `u32`, `u64` (`u128` if supported by system, and if `TBS_ALLOW_128_BIT_INTS` is defined)
 
-signed types
-`i8`-`i64` (`i128` when supported)
+#### Signed Types
+`i8`, `i16`, `i32`, `i64` (`i128` if supported by system, and if `TBS_ALLOW_128_BIT_INTS` is defined)
 
-floating point types
+#### Floating-point Types
 `f32`, `f64`, `f80`/`f128` (`float`, `double`, and `long double`, respectively)
 
-`[uif]Max` will be typedef'd to the widest type available
+Avoid using `f128`, and especially `f80`, if you don't have a specific reason to. 
+Unless you are doing unportable bithacks or need the extra precision, it's pointless.
 
-## macros
 
- - `TBS_ARCH`                set to the detected cpu arch (see arch.h)
+`fMax`, `uMax`, and `iMax` will be typedef'd to the widest respective type available
 
- - `TBS_WORDSIZE`            set to the wordsize, based on TBS_ARCH
+## Macros
 
- - `TBS_MAX_WIDTH`											amount of bits in `uMax` or `iMax`
+ - `TBS_ARCH`               set to the detected cpu arch (see `arch.h`)
 
-## tested on
+ - `TBS_WORDSIZE`           set to the wordsize, based on `TBS_ARCH`
+
+ - `TBS_MAX_WIDTH`			amount of bits in `uMax` or `iMax`
+
+## Verified Working On:
 
 | OS		    	| arch		| gcc | clang | g++ | clang++ |
 | ----------------- | --------- | --- | ----- | --- | ------- |
