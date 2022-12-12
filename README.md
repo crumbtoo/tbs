@@ -2,6 +2,9 @@
 types by size - C header to define primative types by bit-width
 
 ## Types
+#### Generics
+`uint`, `ulong` typedef'd to `unsigned int` and `unsigned long`, respectively. Disabled by defining `TBS_NO_GENERICS`.
+
 #### Unsigned Types
 `u8`, `u16`, `u32`, `u64` (`u128` if supported by system, and if `TBS_ALLOW_128_BIT_INTS` is defined)
 
