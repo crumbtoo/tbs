@@ -50,3 +50,5 @@ Unless you are doing unportable bithacks or need the extra precision, it's point
 
 ## Todo
 [ ] add macros for printf sequences. eg. ``TBS_FMT_uMax`` would expand to ``%zu`` or ``%lu`` depending on the actual size.
+[ ] better documentation; this is the laziest bare minumum shit currently lmfao
+[ ] much more testing, especially on non-x86 machines
