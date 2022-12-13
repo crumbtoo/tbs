@@ -47,3 +47,6 @@ Unless you are doing unportable bithacks or need the extra precision, it's point
 | Arch Linux	    | x86_32	| X   | X     | X   | X		  |
 | MacOS 12.4    	| x86_64	| X   | X     | X   | X		  |
 | Debian 11 on CrOS	| x86_64	| X   | X     | X   | X		  |
+
+## Todo
+[ ] add macros for printf sequences. eg. ``TBS_FMT_uMax`` would expand to ``%zu`` or ``%lu`` depending on the actual size.
