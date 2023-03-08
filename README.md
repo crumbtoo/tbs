@@ -26,7 +26,7 @@ pkgconfig files will not be made and tests will not be done.
 `f32`, `f64`, `f80`/`f128` (`float`, `double`, and `long double`, respectively)
 
 Avoid using `f128`, and especially `f80`, if you don't have a specific reason to. 
-Unless you are doing unportable bithacks or need the extra precision, it's pointless.
+Unless you are doing funny bithacks, it's pointless.
 
 
 `fMax`, `uMax`, and `iMax` will be typedef'd to the widest respective type available
@@ -37,7 +37,7 @@ Unless you are doing unportable bithacks or need the extra precision, it's point
 
  - `TBS_WORDSIZE`           set to the wordsize, based on `TBS_ARCH`
 
- - `TBS_MAX_WIDTH`			amount of bits in `uMax` or `iMax`
+ - `TBS_MAX_WIDTH`			number of bits in `uMax` or `iMax`
 
 ## Verified Working On:
 
